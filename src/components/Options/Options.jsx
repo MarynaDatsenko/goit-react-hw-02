@@ -1,6 +1,11 @@
 import styles from "./Options.module.css";
 
-const Options = ({ feedbackTypes, updateFeedback }) => {
+const Options = ({
+  feedbackTypes,
+  updateFeedback,
+  totalFeedback,
+  handleReset,
+}) => {
   return (
     <div className={styles.wrapper}>
       {Object.keys(feedbackTypes).map((feedbackType) => (
@@ -12,6 +17,11 @@ const Options = ({ feedbackTypes, updateFeedback }) => {
           {feedbackType}
         </button>
       ))}
+      {totalFeedback > 0 && (
+        <button className={styles.resetBtn} onClick={handleReset}>
+          Reset
+        </button>
+      )}
     </div>
   );
 };
